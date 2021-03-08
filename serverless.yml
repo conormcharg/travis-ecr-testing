@@ -34,4 +34,15 @@ functions:
       - http:
           path: /goodbye
           method: GET
+  func3:
+    image:
+      name: appimage
+      command:
+        - app2.handler3
+      entryPoint:
+        - '/lambda-entrypoint.sh'
+    events:
+      - http:
+          path: /func3
+          method: GET
   
