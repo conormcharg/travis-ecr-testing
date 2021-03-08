@@ -1,0 +1,21 @@
+
+service: ecr-testing
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  lambdaHashingVersion: 20201221
+  ecr:
+    images:
+      appimage:
+        path: ./
+
+functions:
+  hello:
+    image:
+      name: appimage
+    events:
+      - http:
+          path: /hello
+          method: GET
