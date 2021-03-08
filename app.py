@@ -16,7 +16,9 @@ def decode(tokenizer, token):
 
 def serverless_pipeline(model_path='./model'):
     """Initializes the model and tokenzier and returns a predict function that ca be used as pipeline"""
+    print("Getting tokenizer")
     tokenizer = AutoTokenizer.from_pretrained(model_path)
+    print("Getting model")
     model = AutoModelForQuestionAnswering.from_pretrained(model_path)
     def predict(question, context):
         """predicts the answer on an given question and context. Uses encode and decode method from above"""
@@ -37,6 +39,7 @@ def handler(event, context):
         # loads the incoming event into a dictonary
         body = json.loads(event['body'])
         # uses the pipeline to predict the answer
+        print("Calling question answering")
         answer = question_answering_pipeline(question=body['question'], context=body['context'])
         return {
             "statusCode": 200,
