@@ -23,6 +23,7 @@ functions:
       - http:
           path: /qa
           method: post
+    timeout: 60 
   func2:
     image:
       name: appimage
