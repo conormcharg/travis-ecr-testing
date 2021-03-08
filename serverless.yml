@@ -12,10 +12,26 @@ provider:
         path: ./
 
 functions:
-  hello:
+  func1:
     image:
       name: appimage
+      command:
+        - app.handler
+      entryPoint:
+        - '/lambda-entrypoint.sh'
     events:
       - http:
           path: /hello
           method: GET
+  func2:
+    image:
+      name: appimage
+      command:
+        - app.handler2
+      entryPoint:
+        - '/lambda-entrypoint.sh'
+    events:
+      - http:
+          path: /goodbye
+          method: GET
+  
