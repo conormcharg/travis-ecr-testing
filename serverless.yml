@@ -21,8 +21,8 @@ functions:
         - '/lambda-entrypoint.sh'
     events:
       - http:
-          path: /hello
-          method: GET
+          path: /qa
+          method: post
   func2:
     image:
       name: appimage
