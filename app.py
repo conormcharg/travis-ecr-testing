@@ -61,8 +61,14 @@ def handler(event, context):
         }
 
 def handler2(event, context):
+    a = np.arange(15).reshape(3, 5)
+
+    print("Your numpy array :")
+    print(a)
+
     body = {
-        "message": "Hello, world! Your function executed successfully!"
+        "message": "Hello, world! Your function executed successfully!",
+        "Array": a.tolist()
     }
 
     response = {
