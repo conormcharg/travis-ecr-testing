@@ -12,5 +12,7 @@ install:
   - npm install
 script: 
   - pytest test_handler.py
+
+after_success:
   - serverless deploy
 
