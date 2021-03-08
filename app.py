@@ -15,10 +15,9 @@ def decode(tokenizer, token):
     return tokenizer.convert_tokens_to_string(answer_tokens)
 
 def serverless_pipeline(model_path='./model'):
-    """Initializes the model and tokenzier and returns a predict function that ca be used as pipeline"""
-    print("Getting tokenizer")
+    """Initializes the model and tokenzier and returns a predict function that ca be used as pipeline""" 
     tokenizer = AutoTokenizer.from_pretrained(model_path)
-    print("Getting model")
+
     model = AutoModelForQuestionAnswering.from_pretrained(model_path)
     def predict(question, context):
         """predicts the answer on an given question and context. Uses encode and decode method from above"""
