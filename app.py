@@ -69,7 +69,7 @@ def handler2(event, context):
     print(a)
 
     body = {
-        "message": "Hello, world! Your function executed successfully!",
+        "message": "Hello, world!!! Your function executed successfully!",
         "Array": a.tolist()
     }
 
